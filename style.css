@@ -1,0 +1,64 @@
+body, ul {
+  padding: 0;
+  margin: 0;
+}
+
+#menu-holder {
+  overflow: hidden;
+}
+
+#wrapper {
+  background: #5f5f5f;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+
+/* Do NOT display buttons on desktop version */
+#showMenuButton, #showSidebarButton {
+  display: none;
+  font-size: 16px;
+  padding: 10px 5px;
+  margin: 10px auto;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.sidebar-submenu {
+  width: 100%;
+  overflow: hidden;
+}
+
+li {
+  line-height: 36px;
+  padding: 20px;
+  float: left;
+  list-style: none;
+  border: none;
+}
+
+/* Mobile version of the website*/
+@media only screen and (max-width: 650px) {
+  /* Display the buttons */
+  #showMenuButton, #showSidebarButton {
+    display: block;
+  }
+
+  /* The state of the buttons when they are clicked */
+  #showMenuButton.clicked, #showSidebarButton.clicked {
+    -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  }
+
+  /* By default the menus are hidden */
+  .submenu, .sidebar-submenu {
+    display: none;
+  }
+  
+  li {
+    border-top: 1px solid #202020;
+    float: none;
+  }
+}
