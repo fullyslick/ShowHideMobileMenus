@@ -7,32 +7,30 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <script src="scripts.js"></script>
+  <title>Show Hide Mobile Menu</title>
 </head>
 
 <body>
-  <div id="wrapper">
-    <div id="menu-holder">
-      <button type="button" name="button" id="showMenuButton">Menu</button>
-      <nav class="submenu">
-        <ul>
-          <li>Item 1</li>
-          <li>Item 2</li>
-          <li>Item 3</li>
-          <li>Item 4</li>
-        </ul>
-      </nav>
-      <button type="button" name="button" id="showSidebarButton">Menu</button>
-      <nav class="sidebar-submenu">
-        <ul>
-          <li>Item 1</li>
-          <li>Item 2</li>
-          <li>Item 3</li>
-          <li>Item 4</li>
-        </ul>
-      </nav>
-    </div>
+  <div id="menu-holder">
+    <button type="button" name="button" id="showMenuButton" class="mobile-button">Top Menu</button>
+    <nav class="submenu mobile">
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+      </ul>
+    </nav>
+    <button type="button" name="button" id="showSidebarButton" class="mobile-button">Sidebar Menu</button>
+    <nav class="sidebar-submenu mobile">
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+      </ul>
+    </nav>
   </div>
 </body>
-<script src="scripts.js"></script>
 </html>
