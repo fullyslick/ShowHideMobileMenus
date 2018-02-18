@@ -1,7 +1,6 @@
 /* -----------------------------------*/
 /* ---------->>> GLOBAL <<<-----------*/
 /* -----------------------------------*/
-
 * {
   margin: 0;
   padding: 0;
@@ -20,60 +19,65 @@ html {
   font-size: 100.01%;
 }
 
-/* -----------------------------------*/
-/* ---------->>> Menus <<<-----------*/
-/* -----------------------------------*/
 /* Holds both menus */
-#menu-holder {
+#wrapper {
   overflow: hidden;
   background: #5f5f5f;
   max-width: 960px;
   margin: 0 auto;
 }
-
+/* -----------------------------------*/
+/* ---------->>> Menus <<<-----------*/
+/* -----------------------------------*/
 /* Do NOT display buttons on desktop version */
-.mobile-button {
+.mobile-button{
+  /* Hide mobile buttons on desktop version. Do not change this */
   display: none;
   font-size: 16px;
   padding: 10px 5px;
   margin: 10px auto;
 }
 
-.sidebar-submenu {
+.mobile-menu{
   width: 100%;
   overflow: hidden;
 }
 
-li {
+.mobile-menu>ul>li {
   line-height: 36px;
   padding: 20px;
   float: left;
   list-style: none;
   border: none;
+  display: block;
 }
 
 /* -----------------------------------*/
 /* ---------->>> Mobile <<<-----------*/
 /* -----------------------------------*/
+/* 'max-width' here should be equal to 'mobileBreakPoint' value in scripts.js */
 @media only screen and (max-width: 650px) {
-  /* Display the buttons */
-  #showMenuButton, #showSidebarButton {
+  /* Display the buttons. Do not change this */
+  .mobile-button {
     display: block;
   }
 
-  /* The state of the buttons when they are clicked */
-  #showMenuButton.clicked, #showSidebarButton.clicked {
+  /* The state of the buttons when they are clicked. Style them as you want */
+  .mobile-button.clicked {
+    background: #f5f5f5;
     -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
     box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   }
 
-  /* By default the menus are hidden */
-  .mobile {
+  /* Hide menus on mobile version. Do not change this */
+  .mobile-menu{
     display: none;
   }
 
-  li {
+  .mobile-menu>ul>li {
+    display: block; /* Do not change this to make the li-s on mobile vertiaclly align below eaach other */
+    width: 100%; /* Do not change this to make the li-s on mobile vertiaclly align below eaach other */
     border-top: 1px solid #202020;
     float: none;
   }

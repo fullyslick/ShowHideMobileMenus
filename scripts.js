@@ -1,73 +1,58 @@
 jQuery(document).ready(function($) {
 
+  // Get the mobile buttons
+  const mobileButtons = $('.mobile-button');
+
+  // Get the menus that should be hidden or shown on mobile version
+  const mobileMenus = mobileButtons.siblings('.mobile-menu');
+
+  // The breakpoint at wich mobile version starts. Make sure it is equal to the media query in CSS.
+  var mobileBreakPoint = 650;
+
   // The function that shows-hides mobile menus
-  // The arguments are the button that was clicked to display the menu & the menu that should be displayed
+  // @button displays the menu
+  // @menu that should be displayed
   function showHideMenu(button, menu) {
-    $(button).toggleClass("clicked"); /*  make the button look like clicked by adding a class */
+    $(button).toggleClass("clicked");
     $(menu).slideToggle(); /* shows or hides the menu */
   }
 
-  // The function that wis called when the size of the window is changed
+  // Listener for change of the window size
   function windowResize(button, menu) {
-    var width = $(window).width(); // Get the width of the windiw and assign it to a  variable
+    // Get the width of the window and assign it to a  variable
+    var width = $(window).width();
 
-    // If the width is higher then mobile responsive design in CSS ( in this case 650px )
-    if (width > 650) {
-      // Display the menus that on mobile version are set to "display: none" inline in the HTML by default
-      // This is THE FIX of screen rotation
-      $(menu).css("display", "block");
-    } else {
+    // Determine if it is desktop or mobile size
+    if (width > mobileBreakPoint) {
 
-      // If the screen width is smaller than mobile responsive
-      // then this means that we are back to the mobile version or we are in mobile version
-      // So check if the given button was clicked
-      if ($(button).hasClass("clicked")) {
-
-        // If it the button was clicked display the corresponding menu
-        $(menu).css("display", "block");
+      // On desktop show all menus
+      for (var i = 0; i < menu.length; i++) {
+        $(menu[i]).css("display", "block");
       }
-      // If it was not clicked hide the corresponding menu
-      else {
-        $(menu).css("display", "none");
+    } else {
+      // On mobile if a button was clicked display the corresponding menu
+      for (var i = 0; i < menu.length; i++) {
+
+        if ($(button[i]).hasClass("clicked")) {
+
+          $(menu[i]).css("display", "block");
+        }
+        // If it was not clicked hide the corresponding menu
+        else {
+          $(menu[i]).css("display", "none");
+        }
       }
     }
   }
 
-  // Naviagtion Menu
-  // Get the "show hide button" of navigation menu
-  // Get the "navigation menu"
-  var navButton = $("#showMenuButton");
-  var navMenu = $('.submenu');
-
-  // On click of navigation button call the function "showHideMenu"
-  // Arguments - the button that was clicked, the menu that should be dispalyed
-  navButton.click(function() {
-    showHideMenu(navButton, navMenu);
+  // Listen for a click on mobile-button and display or hide menu
+  mobileButtons.click(function() {
+    showHideMenu($(this), $(this).siblings('.mobile-menu'));
   });
 
-  // Sidebar Menu
-  // Get the "show hide button of sidebar menu"
-  // Get the "sidebar menu"
-  var sidebarButton = $("#showSidebarButton");
-  var sidebarMenu = $('.sidebar-submenu');
-
-  // On click of sidebar button call the function "showHideMenu"
-  // Arguments - the button that was clicked, the menu that should be dispalyed
-  sidebarButton.click(function() {
-    showHideMenu(sidebarButton, sidebarMenu);
-  });
-
-  // Listener for changing the window size
-  // When window is resized call the functions bellow ( it is the same function with different arguments - one for the navigation menu, one for the sidebar)
-  // Arguments - the button that was clicked, the menu that should be dispalyed
+  // Listener for chanage of the window size
   $(window).resize(function() {
-
-    // Call it for the navigation menu
-    windowResize(navButton, navMenu);
-
-    // Call it for the sidebar
-    windowResize(sidebarButton, sidebarMenu);
+    // Shows or hides menus depeneding on desktop or mobile version
+    windowResize(mobileButtons, mobileMenus);
   });
-
-
 });
