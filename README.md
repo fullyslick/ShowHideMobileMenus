@@ -12,10 +12,10 @@ To implement this code you need to have a `button` of `class="mobile-button"`, a
 
 Copy the CSS properties from the [style.css](style.css) file. You can avoid copying the Global CSS properties as you might already have them implemented in your style sheet.
 
-Copy the [script.js](script.js) code.
+Copy the [scripts.js](scripts.js) code.
 
 ### Requirements
-1. The value of the `mobileBreakPoint` in [script.js](script.js) code should be equal to the breakpoint for the mobile version in [style.css](style.css). In this example it is `650`.
+1. The value of the `mobileBreakPoint` in [scripts.js](scripts.js) code should be equal to the breakpoint for the mobile version in [style.css](style.css). In this example it is `650`.
 2. There should be only one `button` of `class="mobile-button"` and only one sibling of `class="mobile-menu"` on a same DOM level. Example:
 **AVOID THIS:**
 ```
